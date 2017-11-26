@@ -16,13 +16,26 @@ Learning JavaScript Data Structures and Algorithms
     - 双链表
     - 循环链表
     - 判断链表是否成环
+    - 链表插入排序 (InsertionSort)
+    - 链表快速排序 (QuickSort)
+    - 链表归并排序 (MergeSort)
 
 ### TopK       
 - 找第 k 大的元素 (Quick_Select)
 - 找最大的 k 个元素 (Heap)
 
 ### Sort
-- 快速排序
+- 八大排序 (SortingAlgorithm)
+    - 冒泡排序 (bubbleSort)
+    - 选择排序 (selectionSort)
+    - 插入排序 (insertionSort)
+    - 归并排序 (mergeSort)
+    - 快速排序 (quickSort)
+    - 堆排序 (heapSort)
+    - 希尔排序 (shellSort)
+    - 计数排序 (countingSort)
+    - 桶排序 (bucketSort)
+    - 基数排序（分布式排序） (radixSort)
 
 ### String
 - 字符串匹配 (KMP)
