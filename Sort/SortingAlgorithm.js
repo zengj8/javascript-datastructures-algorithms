@@ -46,7 +46,7 @@ function ArrayList() {
         console.log('compare ' + array[j] + ' with ' + array[j + 1]);
         if (array[j] > array[j + 1]) {
           console.log('swap ' + array[j] + ' with ' + array[j + 1]);
-          swap(j, j + 1);
+          swap(array, j, j + 1);
         }
       }
     }
@@ -68,7 +68,7 @@ function ArrayList() {
       }
       if (i !== indexMin) {
         console.log('swap ' + array[i] + ' with ' + array[indexMin]);
-        swap(i, indexMin);
+        swap(array, i, indexMin);
       }
     }
   };
@@ -90,6 +90,7 @@ function ArrayList() {
     }
   };
 
+  // 插入排序在排序小型数组时性能不错，所以可以用来排序桶内的数
   let insertionSort_ = function (array) {
     let length = array.length,
       j, temp;
@@ -189,7 +190,7 @@ function ArrayList() {
     return i;
   };
 
-  // 以 end 为 pivot, 初始化两个指针
+  // 以 end 为 pivot, 初始化两个指针指向 begin, low左边的都是比 end 小的, 最后的 low 就是所求的 partition
   let partition2 = function (nums, begin, end) {
     let low = begin, l = begin, r = end;
     while (l < r) {
@@ -222,6 +223,7 @@ function ArrayList() {
     return array;
   };
 
+  // 构建大根堆，升序
   this.heapSort = function () {
     let heapSize = array.length;
 
@@ -236,6 +238,7 @@ function ArrayList() {
     }
   };
 
+  // 构建大根堆
   let buildHeap = function (array) {
     console.log('building heap');
     let heapSize = array.length;
@@ -269,8 +272,16 @@ function ArrayList() {
   };
 
   // 希尔排序
+  // 该方法的基本思想是：
+  // 先将整个待排元素序列分割成若干个子序列（由相隔某个"增量"的元素组成的）分别进行直接插入排序，
+  // 然后依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
+  // 因为直接插入排序在元素基本有序的情况下（接近最好情况），效率是很高的，因此希尔排序在时间效率上比前两种方法有较大提高。
   this.shellSort = function () {
-
+    let n = array.length;
+    for (let gap = parseInt(n / 2); gap > 0; gap = parseInt(gap / 2))
+      for (let i = gap; i < n; i ++)
+        for (let j = i - gap; j >= 0 && array[j] > array[j + gap]; j -= gap)
+          swap(array, j, j + gap);
   };
 
   // 计数排序
@@ -312,22 +323,22 @@ function ArrayList() {
     let bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
     let buckets = new Array(bucketCount);
     console.log('bucketSize = ' + bucketCount);
-    for (i = 0; i < buckets.length; i++) {
+    for (i = 0; i < buckets.length; i ++) {
       buckets[i] = [];
     }
 
-    for (i = 0; i < array.length; i++) {
+    for (i = 0; i < array.length; i ++) {
       buckets[Math.floor((array[i] - minValue) / bucketSize)].push(array[i]);
       console.log('pushing item ' + array[i] + ' to bucket index ' + Math.floor((array[i] - minValue) / bucketSize));
     }
 
     array = [];
-    for (i = 0; i < buckets.length; i++) {
+    for (i = 0; i < buckets.length; i ++) {
       insertionSort_(buckets[i]);
 
       console.log('bucket sorted ' + i + ': ' + buckets[i].join());
 
-      for (let j = 0; j < buckets[i].length; j++) {
+      for (let j = 0; j < buckets[i].length; j ++) {
         array.push(buckets[i][j]);
       }
     }
@@ -342,7 +353,7 @@ function ArrayList() {
 
     radixBase = radixBase || 10;
 
-    // Perform counting sort for each significant digit), starting at 1
+    // 和两个数比大小一样，从个位开始排序
     let significantDigit = 1;
     while (((maxValue - minValue) / significantDigit) >= 1) {
       console.log('radix sort for digit ' + significantDigit);
@@ -357,34 +368,35 @@ function ArrayList() {
       counts = new Array(radixBase),
       aux = new Array(radixBase);
 
-    for (i = 0; i < radixBase; i++) {
+    for (i = 0; i < radixBase; i ++) {
       counts[i] = 0;
     }
 
-    for (i = 0; i < array.length; i++) {
+    for (i = 0; i < array.length; i ++) {
       countsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
-      counts[countsIndex]++;
+      counts[countsIndex] ++;
     }
 
-    for (i = 1; i < radixBase; i++) {
+    for (i = 1; i < radixBase; i ++) {
       counts[i] += counts[i - 1];
     }
 
-    for (i = array.length - 1; i >= 0; i--) {
+    // 保证稳定排序
+    for (i = array.length - 1; i >= 0; i --) {
       countsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
-      aux[--counts[countsIndex]] = array[i];
+      aux[-- counts[countsIndex]] = array[i];
     }
 
-    for (i = 0; i < array.length; i++) {
+    for (i = 0; i < array.length; i ++) {
       array[i] = aux[i];
     }
 
     return array;
   };
 
-  this.findMaxValue = function(){
-    var max = array[0];
-    for (var i=1; i<array.length; i++){
+  this.findMaxValue = function() {
+    let max = array[0];
+    for (let i = 1; i < array.length; i ++) {
       if (max < array[i]){
         max = array[i];
       }
@@ -393,9 +405,9 @@ function ArrayList() {
     return max;
   };
 
-  this.findMinValue = function(){
-    var min = array[0];
-    for (var i=1; i<array.length; i++){
+  this.findMinValue = function() {
+    let min = array[0];
+    for (let i = 1; i < array.length; i ++) {
       if (min > array[i]){
         min = array[i];
       }

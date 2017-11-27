@@ -5,9 +5,9 @@ Learning JavaScript Data Structures and Algorithms
 - 数组 ([Array](http://www.jianshu.com/p/5abc1b6044bd))
 - 栈 (Stack)
     - 数组栈 (ArrayStack)
-    - 链栈
+    - 链栈 (LinkedListStack)
 - 队列 (Queue)
-    - 数组队列 
+    - 数组队列 (ArrayQueue)
     - 链式队列 
     - 循环队列 
     - 优先队列 (PriorityQueue)
@@ -25,7 +25,7 @@ Learning JavaScript Data Structures and Algorithms
 - 找最大的 k 个元素 (Heap)
 
 ### Sort
-- 八大排序 (SortingAlgorithm)
+- 排序算法 (SortingAlgorithm)
     - 冒泡排序 (bubbleSort)
     - 选择排序 (selectionSort)
     - 插入排序 (insertionSort)
