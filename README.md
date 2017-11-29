@@ -19,6 +19,11 @@ Learning JavaScript Data Structures and Algorithms
     - 链表插入排序 (InsertionSort)
     - 链表快速排序 (QuickSort)
     - 链表归并排序 (MergeSort)
+- 集合 (Set)
+    - 字典 (Dictionary)
+    - 散列表 (HashTable)
+        - 分离链接 (HashCollisionSeparateChaining)
+        - 线性探查 (HashCollisionLinearProbing)
 
 ### TopK       
 - 找第 k 大的元素 (Quick_Select)
