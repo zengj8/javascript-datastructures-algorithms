@@ -20,6 +20,8 @@ Learning JavaScript Data Structures and Algorithms
     - 链表快速排序 (QuickSort)
     - 链表归并排序 (MergeSort)
 - 集合 (Set)
+
+- 映射表(Map)
     - 字典 (Dictionary)
     - 散列表 (HashTable)
         - 分离链接 (HashCollisionSeparateChaining)
