@@ -5,17 +5,17 @@ Learning JavaScript Data Structures and Algorithms
 - 数组 ([Array](http://www.jianshu.com/p/5abc1b6044bd))
 - 栈 (Stack)
     - 数组栈 (ArrayStack)
-    - 链栈 (LinkedListStack)
+    - 链栈 (LinkedStack)
 - 队列 (Queue)
     - 数组队列 (ArrayQueue)
-    - 链式队列 
-    - 循环队列 
+    - 链式队列 (LinkedQueue)
+    - 循环队列 (CircularQueue)
     - 优先队列 (PriorityQueue)
 - 链表 (LinkedList)
-    - 单链表
-    - 双链表
-    - 循环链表
-    - 判断链表是否成环
+    - 单链表 (LinkedList)
+    - 双链表 (DoublyLinkedList)
+    - 循环链表 (CircularLinkedList)
+    - 判断链表是否成环 (LinkedListWithCycle)
     - 链表插入排序 (InsertionSort)
     - 链表快速排序 (QuickSort)
     - 链表归并排序 (MergeSort)
@@ -45,7 +45,7 @@ Learning JavaScript Data Structures and Algorithms
 - 迭代先序遍历、中序遍历、后序遍历 (OrderTraverse)
 - AVL树 (AVLTree)
     1. BST 的扩展
-    1. 自平衡，任意节点的左右子树高度最多相差1
+    1. 自平衡，任意节点的左右子树高度最多相差 1
     2. 插入和移除节点性能并不总是最好的（虽然自平衡），更好的选择是红黑树
 - 红黑树 (RedBlackTree)
     1. 可高效率有序地遍历其节点
