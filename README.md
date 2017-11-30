@@ -3,14 +3,11 @@ Learning JavaScript Data Structures and Algorithms
 
 ### Base
 - 数组 ([Array](http://www.jianshu.com/p/5abc1b6044bd))
+
 - 栈 (Stack)
-    - 数组栈 (ArrayStack)
-    - 链栈 (LinkedStack)
+
 - 队列 (Queue)
-    - 数组队列 (ArrayQueue)
-    - 链式队列 (LinkedQueue)
-    - 循环队列 (CircularQueue)
-    - 优先队列 (PriorityQueue)
+    
 - 链表 (LinkedList)
     - 单链表 (LinkedList)
     - 双链表 (DoublyLinkedList)
@@ -30,6 +27,7 @@ Learning JavaScript Data Structures and Algorithms
 ### TopK       
 - 找第 k 大的元素 (Quick_Select)
 - 找最大的 k 个元素 (Heap)
+- 优先队列 (PriorityQueue)
 
 ### Sort
 - 排序算法 (SortingAlgorithm)
@@ -64,3 +62,8 @@ Learning JavaScript Data Structures and Algorithms
 - 最小生成树 (MinimumSpanningTree)
     - prim
     - kruskal
+
+### TODO
+- 优先队列 (PriorityQueue)
+- AVL树 (AVLTree)
+- 红黑树 (RedBlackTree)
