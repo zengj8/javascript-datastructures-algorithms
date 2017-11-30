@@ -58,5 +58,9 @@ Learning JavaScript Data Structures and Algorithms
     1. 可高效率有序地遍历其节点
 
 ### Graph
-- 最短路
-- 最小生成树
+- 最短路 (ShortestPath)
+    - dijkstra
+    - floydWarshall
+- 最小生成树 (MinimumSpanningTree)
+    - prim
+    - kruskal
