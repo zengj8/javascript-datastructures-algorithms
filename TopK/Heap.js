@@ -1,13 +1,12 @@
 
 /**
  * @name 最大堆的构造函数
- * @param {int}           capacity      - 容量
+ * @param {number}           capacity      - 容量
  */
 function MaxHeap(capacity) {
   if (capacity) {               // 总的容量
     this.capacity = capacity;
-  }
-  else {
+  } else {
     this.capacity = 30;
   }
   this.heap = [];               // 堆化数组
@@ -15,8 +14,8 @@ function MaxHeap(capacity) {
 
 /**
  * @name 最大堆的向下调整算法：当从最大堆中删除数据时，先删除该数据，然后用最大堆中最后一个的元素插入这个空位；接着，把这个空位尽量往上挪，直到剩余的数据变成一个最大堆
- * @param {int}           current         - 被下调节点的起始位置(一般为0，表示从第1个开始)
- * @param {int}           end             - 截至范围(一般为数组中最后一个元素的索引)
+ * @param {number}           current         - 被下调节点的起始位置(一般为0，表示从第1个开始)
+ * @param {number}           end             - 截至范围(一般为数组中最后一个元素的索引)
  */
 MaxHeap.prototype.filterDown = function(current, end) {
   let l = 2 * current + 1;          // 左孩子的位置
@@ -39,8 +38,8 @@ MaxHeap.prototype.filterDown = function(current, end) {
 
 /**
  * @name 删除最大堆中的data
- * @param {int}           data          - 删除数据
- * @return {int}          -1/0          - 失败/成功
+ * @param {Object}           data          - 删除数据
+ * @return {number}          -1/0          - 失败/成功
  */
 MaxHeap.prototype.remove = function(data) {
   // 如果"堆"已空，则返回-1
@@ -60,7 +59,7 @@ MaxHeap.prototype.remove = function(data) {
 
 /**
  * @name 最大堆的向上调整算法：将数据data添加到最大堆中。当堆已满的时候，添加失败；否则data添加到最大堆的末尾。然后通过上调算法重新调整数组，使之重新成为最大堆
- * @param {int}           current           - 当前节点的位置
+ * @param {number}           current           - 当前节点的位置
  */
 MaxHeap.prototype.filterUp = function(current) {
   let parent = parseInt((current - 1) / 2);
@@ -80,8 +79,8 @@ MaxHeap.prototype.filterUp = function(current) {
 
 /**
  * @name 将data插入到二叉堆中
- * @param {int}           data              - 插入数据
- * @return {int}          -1/0              - 失败/成功
+ * @param {Object}           data              - 插入数据
+ * @return {number}          -1/0              - 失败/成功
  */
 MaxHeap.prototype.insert = function(data) {
   // 如果"堆"已满，则返回
@@ -96,8 +95,8 @@ MaxHeap.prototype.insert = function(data) {
 
 /**
  * @name 返回data在二叉堆中的索引
- * @param {int}           data          - 插入数据
- * @return {int}          -1/0          - 不存在/data在堆化数组中的索引
+ * @param {Object}           data          - 插入数据
+ * @return {number}          -1/i          - 不存在/data在堆化数组中的索引
  */
 MaxHeap.prototype.getIndex = function(data) {
   for (let i = 0; i < this.heap.length; i ++) {
